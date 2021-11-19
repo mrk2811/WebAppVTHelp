@@ -1,0 +1,35 @@
+{% extends "vt_help/base.html" %}
+{% load static %}
+
+{% block page-heading %}Create New Post{% endblock %}
+
+{% block content %}
+
+    <link rel="stylesheet" type="text/css" href="{% static "css/responsive_create_new_post.css" %}">
+    <ul id = "new-post-navigation">
+          <li><a href="#" class="selected">Edit</a> </li>
+          <li><a href="#">Preview</a> </li>
+    </ul>
+
+        <form id = "creating-post" action = "{% url "vt_help:add" %}" method = "post">
+        {% csrf_token %}
+          <input id = "attach-button" type="button" name="attach-image" value="Attach Image">
+          <input id = "title-text" type="text" name="add-a-title" placeholder="Add a Title">
+          <input id = "location-text" type="text" name="add-a-location" placeholder="Add a Location">
+          <input id = "overview-text" type="text" name="add-a-brief-overview" placeholder="Add a Brief Overview">
+          <input id = "add-links-text" type="text" name="add-relevant-links" placeholder="Add relevant links here">
+          <p id = "radio-start"> Post Type:</p>
+          <input type="radio" id = "Housing" name="post-type" value="Housing">
+          <label for="Housing">Housing</label><br>
+          <input type="radio" id = "Dining" name="post-type" value="Dining">
+          <label for="Dining">Dining</label><br>
+          <input type="radio" id = "Transportation" name="post-type" value="Transportation">
+          <label for="Dining">Transportation</label><br>
+          <input type="radio" id = "Entertainment" name="post-type" value="Entertainment">
+          <label for="Dining">Entertainment</label><br>
+          <input type="radio" id = "Other" name="post-type" value="Other">
+          <label for="Dining">Other</label><br>
+          <input id = "post-button" type="submit" name="post" value="Post">
+        </form>
+
+{% endblock %}

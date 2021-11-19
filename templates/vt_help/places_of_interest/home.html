@@ -1,0 +1,17 @@
+{% extends "vt_help/base.html" %}
+{% load static %}
+
+{% block page-heading %}Select Campus{% endblock %}
+
+{% block content %}
+    <p class = "details">This website gives you a quick access to the information you need to familiarize yourself with the Virginia Tech campus.You may begin by selecting a campus below</p>
+    <a href = "list.html"><img id = "bburg-image" src="{% static "img/bburg1.jpg"%}" alt="Blacksburg-Campus"></a>
+    <a href = "#"><img id = "ncr-image" src="{% static "img/ncr.jpg"%}" alt="NCR-Campus"></a>
+
+{% endblock %}
+
+{% block news-feed %}
+    {% if request.session.username %}
+    {% include "actions/action/feeds.html" %}
+    {% endif %}
+{% endblock %}

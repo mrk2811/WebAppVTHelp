@@ -1,0 +1,14 @@
+{% extends "vt_help/base.html" %}
+
+{% block page-heading %}All Users List{% endblock %}
+
+{% block content %}
+
+         {% for user in users %}
+
+             <p><a href="{% url "users:profile" user.username %}">{{ user.username }} </a></p>
+
+         {% endfor %}
+     </div><!-- sports-and-games -->
+
+{% endblock %}

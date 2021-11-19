@@ -1,0 +1,110 @@
+div#post-comments {
+  margin-left: 20px;
+  background-color: white;
+}
+
+img#pool-picture,
+img#bowling-picture,
+img#table-tennis-picture{
+  width: 200px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+div#post-title {
+  margin-left: 20px;
+}
+
+div#post-title h1 {
+  margin-bottom: 0;
+}
+
+p.post-thumbs-up-points {
+  margin-top: 3px;
+}
+
+div#post-details {
+  margin-left: 20px;
+  border: 1px solid black;
+  margin-bottom: 2px;
+  padding-left: 3px;
+}
+
+p.post-overview,
+h4.post-overview-title,
+h4.post-links-title,
+div#post-link{
+  margin-left: 15px;
+}
+
+p.post-overview {
+  margin-top: 0;
+}
+
+div#post-link {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+h4.post-overview-title,
+h4.post-links-title {
+  margin-bottom: 0;
+}
+
+h4.post-comments-title {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  float: left;
+  width: 68%;
+}
+
+div#post-comments form {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  float: left;
+}
+
+div.post-comment {
+  clear: left;
+  border: 1px solid black;
+  margin-bottom: 2px;
+  padding-left: 3px;
+}
+
+h5.post-comment-user-name,
+p.post-comment-description,
+p.post-comment-thumbs-up-points {
+  margin-left: 15px;
+}
+
+p.post-comment-description {
+   margin-right: 15px;
+}
+
+p.post-comment-thumbs-up-points {
+  clear: left;
+  font-size: x-small;
+}
+
+@media all and (min-width: 376px) {
+
+  div#post-title {
+    width: 26%;
+  }
+
+  h4.post-comments-title {
+    width: 90%;
+  }
+
+  h5.post-comment-user-name {
+    float: left;
+    width: 100px;
+    font-size: small;
+  }
+
+  /*alternate view styles*/
+  h4.post-hide {
+    margin-left: 24.7%;
+  }
+
+}

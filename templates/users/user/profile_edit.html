@@ -1,0 +1,20 @@
+{% extends "vt_help/base.html" %}
+{% load static %}
+
+{% block page-heading %}Edit Profile for {{ user.username }}{% endblock %}
+
+{% block content %}
+
+    <form id = "edit-profile" action = "{% url "users:views.profile-edit" user.username %}" method='POST'>
+        {% csrf_token %}
+      <input id = "edit-first-name" type="text" name="add-first-name" value="{{user.first_name}}">
+      <input id = "edit-last-name" type="text" name="add-last-name" value="{{ user.last_name }}">
+      <input id = "edit-email" type="text" name="add-email" value="{{ user.email }}">
+        <input id = "edit-password" type="password" name="add-password" value="{{ user.password }}">
+        {% if request.session.username == 'admin' %}
+            <input id = "edit-role" type="text" name="add-role" value="{{ user.details.role }}">
+        {% endif %}
+      <input id = "profile-edit-button" type="submit" name="profile-edit" value="Edit">
+    </form>
+
+{% endblock %}

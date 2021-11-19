@@ -1,0 +1,27 @@
+{% extends "vt_help/base.html" %}
+{% load static %}
+
+{% block page-heading %}Register User{% endblock %}
+
+{% block content %}
+
+    <link rel="stylesheet" type="text/css" href="{% static "css/responsive_create_new_post.css" %}">
+
+        <form id = "register-user" action = "{% url "users:register" %}" method = "post">
+        {% csrf_token %}
+          <input id = "register-username" type="text" name="username" placeholder="enter new username" required>
+          <input id = "register-email" type="email" name="email" placeholder="enter new email" required>
+          <input id = "register-password" type="password" name="password" placeholder="enter new password" required>
+          <input id = "register-first-name" type="first-name" name="first-name" placeholder="enter your first-name" required>
+          <input id = "register-last-name" type="last-name" name="last-name" placeholder="enter your last-name" required>
+
+            <p id = "register-campus"> Select Campus:</p>
+          <input type="radio" id = "Blacksburg" name="campus" value="Blacksburg">
+          <label for="Housing">Blacksburg</label><br>
+          <input type="radio" id = "NCR" name="campus" value="NCR">
+          <label for="Dining">NCR</label><br>
+
+          <input id = "post-button" type="submit" name="post" value="Register">
+        </form>
+
+{% endblock %}

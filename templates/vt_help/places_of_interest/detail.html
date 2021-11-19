@@ -1,0 +1,43 @@
+{% extends "vt_help/base.html" %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "css/responsive_detailed_view.css" %}">
+{% block page-heading %}{{ place.title }}{% endblock %}
+
+{% block content %}
+    <div id = "post-details">
+      <img id = "pool-picture" src="{% static "img/BreakZonePool.jpg"%}" alt="BreakZonePool">
+      <img id = "bowling-picture" src="{% static "img/BreakZoneBowling.jpg"%}" alt="BreakZoneBowling">
+      <img id = "table-tennis-picture" src="{% static "img/BreakZoneTableTennis.jpg" %}" alt="BreakZoneTableTennis">
+      <h4 class = "post-overview-title">Overview:</h4>
+      <p class = "post-overview">{{ place.shortDescription }}</p>
+      <h4 class = "post-links-title">Links:</h4>
+        <p class = "post-author">Author:<a href="{% url "users:profile" place.user.username %}">{{ place.user.username }}</a></p>
+        <p class = "post-date">posted date: {{ place.date_posted }}</p>
+      <div id = "post-link"><a href="https://campuslife.vt.edu/student_centers/Squires/BreakZone.html">Link to BreakZone Site</a></div>
+     {% if request.session.username %}
+        <p class="edit-box"><a href="{% url "vt_help:views.places_of_interest_edit" place.id %}">Edit</a></p>
+     {% endif %}
+    </div>
+
+    <div id = "post-comments">
+      <h4 class = "post-comments-title">Comments:</h4>
+        {% if request.session.username %}
+        <input  type="text" name="comment-text" placeholder="enter new comment">
+      <input id = "add-new-comment" data-username = "{{ request.session.username }}" data-place = "{{ place }}" data-ajax-url = "{% url "vt_help:comment_add" %}" type="button" name="comment-button" value="Add a Comment">
+        {% endif %}
+        {% for comment in comments %}
+
+          <div class = "post-comment">
+            <h5 class = "post-comment-user-name"><a href="{% url "users:profile" comment.user.username %}">{{ comment.user.username }}</a></h5>
+            <p class = "post-comment-description">{{ comment.text }}</p>
+            <p class = "post-comment-date">{{ comment.date_posted }}</p>
+            <p class = "post-comment-thumbs-up-points"><a href="#">likes</a>:11  <a href="#">dislikes</a>:0</p>
+          </div><!-- post-comment -->
+            {% empty %}
+                <li>No Comments Yet.</li>
+
+        {% endfor %}
+
+    </div><!-- post-comments -->
+
+{% endblock %}

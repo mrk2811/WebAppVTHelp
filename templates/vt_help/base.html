@@ -1,0 +1,112 @@
+{% load static %}
+<!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>VT Help</title>
+      <script src ="{% static "js/jquery-3.6.0.min.js" %}"></script>
+      <script src ="{% static "js/scripts.js" %}"></script>
+      <link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/responsive_detailed_view.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "css/responsive_home.css"%}">
+
+    </head>
+    <body>
+
+      <div id = "header">
+
+        <div id = "title-and-home">
+          <img src="{% static "img/logo.PNG"%}" alt="Logo">
+          <form action = "{% url "vt_help:views.places_of_interest_home" %}" method="get">
+              <input type="submit" name="home" value="Home">
+          </form>
+        </div><!-- title-and-home -->
+
+        <div id = "search">
+          <form action = "searchResults.html" method="get">
+            <input type="text" name="search" placeholder="Search: try typing 'sports'">
+            <input type="submit" name="submit" value="Go">
+          </form>
+        </div><!-- search -->
+
+        {% if request.session.username %}
+
+        <div id = "header-right-panel">
+          <div id = "campus-name" class = "blacksburg-campus">Blacksburg Campus</div>
+          <form action ="{% url "users:logout" %}" method="get">
+              <input id = "logout-button" type="submit" name="home" value="Logout">
+          </form>
+          <div id = "greeting" class = "greeting"><a href="{% url "users:profile" request.session.username %}">{{ request.session.username }}</a></div>
+        </div><!-- header-right-panel -->
+
+        {% else %}
+
+        <div id = "header-right-panel">
+          <div id = "campus-name" class = "blacksburg-campus">Blacksburg Campus</div>
+          <form id = "login" action = "{% url "vt_help:views.places_of_interest_login" %}" method="get">
+              <input id = "login-button" type="submit" name="Login-Button" value="Login"><a id = "register-link" href="{% url "users:register" %}">Register</a>
+          </form>
+        </div><!-- header-right-panel -->
+
+        {% endif %}
+
+        <ul id = "primary-navigation">
+          <li><a href="#">Housing</a> </li>
+          <li><a href="#">Dining</a> </li>
+          <li><a href="#">Transportation</a> </li>
+          <li><a href="{% url "vt_help:views.places_of_interest_list" %}" class="selected">Entertainment</a> </li>
+          <li><a href="#">Other</a> </li>
+        </ul>
+
+      </div><!-- header -->
+
+      <div id = "content">
+
+          {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+
+        {% if request.session.username %}
+        <div id = "create-new-post"><a href="{% url "vt_help:views.places_of_interest_add" %}">Create New Post</a></div>
+        {% endif %}
+
+
+        <div id = "sports-and-games-title"><h1>{% block page-heading %}{% endblock %}</h1></div>
+
+       {% block content %}{% endblock %}
+
+
+      </div><!-- content -->
+
+      {% block news-feed %}{% endblock %}
+
+      <div id = "footer">
+
+        <div id = "footer-left">
+          <img src="{% static "img/vt_name.png"%}" alt="Virginia Tech Name">
+          <p class = "about-website">VTHELP provides information for new Hokies on campus</p>
+        </div><!-- footer-left -->
+
+
+        <div id = "footer-middle">
+          <ul id = "footer-navigation"><li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Select Campus</a></li>
+            <li><a class = "back-to-listing" href="list.html">Back to Listing</a></li>
+          </ul>
+        </div><!-- footer-middle -->
+
+
+        <div id = "footer-right">
+          <img src="{% static "img/logo.PNG"%}" alt="Logo">
+          <p class = "rights">All Rights Reserved</p>
+        </div><!-- footer-right -->
+
+      </div><!-- footer -->
+
+    </body>
+  </html>

@@ -1,0 +1,101 @@
+
+div#content h1 {
+margin-left: 15px;
+}
+
+ul#new-post-navigation {
+list-style-type: none;
+margin-top: 15px;
+margin-left: 40px;
+}
+
+ul#new-post-navigation li a {
+ float: left;
+background-color: grey;
+text-decoration: none;
+padding: 0px 5px;
+color: black;
+border: 1px solid black;
+margin-bottom: 15px;
+}
+
+ul#new-post-navigation li a:hover {
+background-color: orange;
+}
+
+div#content form {
+margin-left: 20px;
+clear: left;
+}
+
+input#attach-button {
+display: block;
+margin-bottom: 2px;
+}
+
+input#title-text {
+float: left;
+width: 300px;
+margin-bottom: 2px;
+margin-right: 2px;
+border: 1px solid black;
+}
+
+input#location-text {
+float: left;
+width: 300px;
+border: 1px solid black;
+}
+
+input#overview-text {
+clear: left;
+display: block;
+width: 300px;
+height: 100px;
+margin-bottom: 2px;
+border: 1px solid black;
+}
+
+input#add-links-text {
+width: 300px;
+border: 1px solid black;
+}
+
+p#radio-start {
+margin-bottom: 2px;
+}
+
+@media all and (min-width: 376px) {
+  div#content h1 {
+  float: left;
+  margin-top: 0px;
+  width: 58%;
+  }
+
+  ul#new-post-navigation {
+  margin-top: 30px;
+  margin-left: 0px;
+  }
+
+  ul#new-post-navigation li a {
+  margin-bottom: 0;
+  }
+
+  input#title-text {
+  width: 400px;
+  }
+
+  input#location-text {
+  float: left;
+  width: 400px;
+  }
+
+  input#overview-text {
+  width: 810px;
+  }
+
+  input#add-links-text {
+  width: 810px;
+  }
+
+}

@@ -1,0 +1,339 @@
+div#campus-name {
+    display: none;
+  }
+
+html, body {
+  margin: 0; padding: 0;
+  background-color: white;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/*header styles*/
+div#header {
+  background-color: maroon;
+  overflow: hidden;
+}
+
+/*left side of header*/
+div#title-and-home img {
+  display: block;
+  max-width: 100%;
+  margin-left: 30%;
+}
+
+div#title-and-home form {
+  display: none;
+}
+
+ /*header search bar*/
+div#search {
+  margin-left: 20%;
+  margin-top: 30px;
+}
+
+input#logout-button {
+    float: left;
+    width: 100px;
+    margin-top: 40px;
+    margin-left: 20%;
+  margin-bottom: 15px;
+}
+
+/*header right side*/
+div#greeting a{
+    float: left;
+    width: 70px;
+    margin-top: 42px;
+    margin-left: 20px;
+    color: white;
+  }
+
+div#greeting a:Hover{
+  color: orange;
+}
+
+/*header navigation styles*/
+ul#primary-navigation {
+  clear: left;
+  list-style-type: none;
+}
+
+ul#primary-navigation li {
+    float: left;
+}
+
+ul#primary-navigation li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: darkred;
+  color: white;
+}
+
+ul#primary-navigation li a:hover {
+  background-color: orange;
+}
+
+ul#primary-navigation li a.selected {
+  background-color: black;
+}
+
+/*content*/
+div#create-new-post {
+  margin-top: 6px;
+  margin-left: 65%;
+}
+
+div#sports-and-games-title {
+  margin-left: 20px;
+}
+
+div#sports-and-games {
+  margin-left: 20px;
+  background-color: white;
+}
+
+div#sports-and-games div.sports-and-games-post {
+  border: 1px solid black;
+  margin-bottom: 2px;
+  padding-left: 3px;
+}
+
+div#sports-and-games div.sports-and-games-post h3 {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+div#sports-and-games div.sports-and-games-post p {
+  margin-left: 15px;
+}
+
+/*footer styles*/
+ div#footer {
+    background-color: maroon;
+  }
+
+div#footer-left img {
+  display: none;
+}
+
+div#footer-left p {
+  display: none;
+}
+
+ul#footer-navigation {
+  float: left;
+  width: 300px;
+  list-style-type: none;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+ul#footer-navigation li a {
+  float: left;
+  text-decoration: none;
+  padding: 0px 5px;
+  color: white;
+  border-right: 1px solid white;
+}
+
+ul#footer-navigation li a:hover {
+  color: orange;
+}
+
+ul#footer-navigation a.back-to-listing {
+  border-right: none;
+}
+
+div#footer-right img {
+  display: none;
+}
+
+div#footer-right p {
+  clear: left;
+  margin-top: 1px;
+  color: white;
+  margin-left: 30%;
+}
+
+/*login button for alternate view*/
+input#login-button {
+  width: 100px;
+  margin-top: 15px;
+  margin-left: 30%;
+}
+
+@media all and (min-width: 376px) {
+
+  /* header left of search bar*/
+  div#title-and-home {
+    float: left;
+    width: 26%;
+    margin-left: 14%;
+    margin-top: 20px;
+  }
+  div#title-and-home img {
+    float: left;
+    margin-left: 0;
+  }
+
+  div#title-and-home form {
+    margin-top: 20px;
+    margin-left: 135px;
+    display: block;
+  }
+
+  /*header search bar*/
+  div#search {
+    float: left;
+    width: 20%;
+    margin-left: 20px;
+  }
+
+  /*header right of search bar*/
+  div#campus-name {
+    float: left;
+    width: 100px;
+    margin-top: 35px;
+    color: white;
+    display: block;
+  }
+
+  input#logout-button {
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
+
+  /*login button for alternate view*/
+  input#login-button {
+    float: left;
+    width: 100px;
+    margin-top: 40px;
+    margin-left: 0;
+  }
+
+  a#register-link {
+    color: white;
+    float: left;
+    width: 100px;
+    margin-top: 40px;
+    margin-left: 20px;
+  }
+
+    a#register-link:hover {
+      color: orange;
+  }
+
+  /*header primary navigation*/
+  ul#primary-navigation {
+    margin: 0 0 0 34%; padding: 0;
+  }
+
+  /*content styles*/
+  div#content {
+    clear: left;
+    margin-left: 13.2%;
+    margin-bottom: 20px;
+    width: 64.7%;
+  }
+
+  ul.messages {
+    font-weight: bold;
+    padding: 1em;
+    margin: 0;
+    list-style: none;
+  }
+
+  ul.messages li.success {
+    background-color: lightgreen;
+    padding: 1em;
+    margin: 0.25em;
+  }
+
+   ul.messages li.info {
+    background-color: blue;
+    padding: 1em;
+    margin: 0.25em;
+  }
+
+   ul.messages li.warning {
+    background-color: red;
+    padding: 1em;
+    margin: 0.25em;
+  }
+
+  div#create-new-post {
+    width: 500px;
+    margin-left: 90%;
+  }
+
+  div#sports-and-games-title {
+    width: 500px;
+  }
+
+
+  /*footer styles*/
+  div#footer {
+
+     height: 180px;
+  }
+  /*footer left elements*/
+  div#footer-left {
+    float: left;
+    width: 37%;
+  }
+
+
+  div#footer-left img {
+    display: inline;
+    width: 200px;
+    margin-left: 270px;
+    margin-top: 6px;
+  }
+
+  div#footer-left p {
+    display: inline-block;
+    margin-left: 270px;
+    margin-top: 1px;
+    width: 250px;
+    color: white;
+  }
+
+  /*footer middle elements*/
+  div#footer-middle {
+    float: left;
+    width: 26%;
+  }
+
+  ul#footer-navigation {
+    float: left;
+    width: 300px;
+  }
+
+  /*footer right elements*/
+
+  div#footer-right {
+    float: left;
+    width: 8%;
+    text-align: right;
+    margin-left: 7%;
+  }
+
+  div#footer-right img {
+    display: inline-block;
+    margin-top: 6px;
+  }
+
+  div#footer-right p {
+    margin-top: 1px;
+    color: white;
+    margin-left: 0px;
+  }
+
+
+
+
+
+
+
+}

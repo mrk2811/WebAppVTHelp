@@ -1,0 +1,14 @@
+{% extends "vt_help/base.html" %}
+
+{% block page-heading %}Login{% endblock %}
+
+{% block content %}
+
+    <form id="login-box" action="{% url "users:login" %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="pw" placeholder="Password">
+        <input type="submit" name="submit" value="Log in"> or <a href="#">Register</a>
+    </form>
+
+{% endblock %}

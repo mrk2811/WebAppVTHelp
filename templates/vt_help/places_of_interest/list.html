@@ -1,0 +1,54 @@
+{% extends "vt_help/base.html" %}
+
+{% block page-heading %}Sports & Games{% endblock %}
+
+{% block content %}
+
+     <div id = "sports-and-games">
+        <p class="profile-list"><a href="{% url "users:profile-list" %}">See All Users</a></p>
+         <form id="delete-box" action="{% url "vt_help:views.sort_recent" %}" method="post">
+             {% csrf_token %}
+             <input type="submit" name="submit" value="Sort By Recent">
+         </form>
+
+         <form id="delete-box" action="{% url "vt_help:views.sort_title" %}" method="post">
+             {% csrf_token %}
+             <input type="submit" name="submit" value="Sort By Title">
+         </form>
+
+        {% if places.count == 0 %}
+            <p class = "no-places">There are no new places right now</p>
+        {% endif %}
+
+         {% for place in places %}
+             <div class = "sports-and-games-post">
+                <h3 class = "sports-and-games-post-title"><a href="{% url "vt_help:views.places_of_interest_detail" place.id %}" data-place-id="{{ place.id }}" data-ajax-url="{% url "vt_help:author_and_date" %}">{{ place.title }}</a></h3>
+                <p class = "sports-and-games-post-location">{{ place.location }}</p>
+                <p class = "sports-and-games-post-description">{{ place.shortDescription }}</p>
+                <p class = "post-thumbs-up-points"><a class = "likes" href="#">likes</a>:{{ place.likes }}  <a href="#">dislikes</a>:{{ place.dislikes }}</p>
+
+                 {% if request.session.username %}
+                     <p class="edit-box"><a href="{% url "vt_help:views.places_of_interest_edit" place.id %}">Edit</a></p>
+                 {% endif %}
+
+                {% if request.session.username == 'admin' %}
+                <form id="delete-box" action="{% url "vt_help:views.delete" place.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" name="submit" value="Delete">
+                </form>
+                {% endif %}
+                <button class="author" data-place-id="{{ place.id }}" data-ajax-url="{% url "vt_help:author_and_date" %}">Get Author</button>
+
+                <form id="edit-location" action="{% url "vt_help:views.places_of_interest_list" %}" method="post" data-place-id="{{ place.id }}" data-ajax-url="{% url "vt_help:views.edit_location" %}">
+                    {% csrf_token %}
+                     <input id = "list-location-text" type="text" name="add-a-location" placeholder="new location">
+                    <input type="submit" name="submit" value="edit location">
+                </form>
+
+             </div><!-- sports-and-games-post -->
+
+
+         {% endfor %}
+     </div><!-- sports-and-games -->
+
+{% endblock %}
