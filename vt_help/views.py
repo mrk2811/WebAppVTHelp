@@ -5,6 +5,7 @@ from users.models import Comments
 from .models import placesOfInterest, regular_user, admin, User
 from actions.models import Action
 from django.http import JsonResponse
+import requests
 
 
 # Create your views here.
